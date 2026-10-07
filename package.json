@@ -1,0 +1,13 @@
+{
+  "name": "o3-signatures",
+  "version": "1.0.0",
+  "description": "O3 Signatures restaurant website",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build step required'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}

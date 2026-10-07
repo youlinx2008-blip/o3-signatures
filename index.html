@@ -4,8 +4,45 @@
 <meta charset="utf-8">
 <script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>O3 Signatures – Burger Gourmet &amp; Grill à Villemomble</title>
-<meta name="description" content="O3 Signatures, burgers gourmets, sandwichs, grillades, pâtes et desserts maison au 65 Grande Rue à Villemomble. Sur place, à emporter ou en livraison.">
+<title>O3 Signatures – Burgers, Sandwichs &amp; Grill à Villemomble</title>
+<meta name="description" content="Burgers gourmets, sandwichs, grillades et desserts maison au 65 Grande Rue à Villemomble. Sur place, à emporter, en livraison. Commandez au 01 48 54 32 71.">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%230d0d0d' stroke='%23f26a1b' stroke-width='5'/%3E%3Ctext x='32' y='41' font-family='Arial,sans-serif' font-size='24' font-weight='700' text-anchor='middle' fill='%23f26a1b'%3EO3%3C/text%3E%3C/svg%3E">
+
+<!-- Aperçu lors d'un partage (WhatsApp, réseaux). À compléter à la mise en ligne : og:url, og:image (vraie photo) et lien canonical avec l'adresse définitive du site -->
+<meta property="og:type" content="restaurant">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="O3 Signatures">
+<meta property="og:title" content="O3 Signatures – Burgers, Sandwichs &amp; Grill à Villemomble">
+<meta property="og:description" content="Burgers gourmets, sandwichs, grillades et desserts maison au 65 Grande Rue à Villemomble. Sur place, à emporter, en livraison.">
+<meta name="twitter:card" content="summary">
+
+<!-- Données structurées pour Google (restaurant local). Les horaires doivent rester identiques à la fiche Google. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "O3 Signatures",
+  "alternateName": "O3 Signatures Burger Gourmet & Grill",
+  "description": "Burgers gourmets, sandwichs, hot-dogs, paninis, grillades, pâtes, gratins et desserts maison à Villemomble. Sur place, à emporter ou en livraison.",
+  "telephone": "+33148543271",
+  "servesCuisine": ["Burgers", "Grillades", "Sandwichs", "Restauration rapide"],
+  "priceRange": "10-20 €",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "65 Grande Rue",
+    "postalCode": "93250",
+    "addressLocality": "Villemomble",
+    "addressCountry": "FR"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Saturday"], "opens": "11:00", "closes": "23:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "14:30", "closes": "23:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "13:30", "closes": "23:30" }
+  ]
+}
+</script>
+
 <!-- Maquette de démonstration : retirer la ligne ci-dessous une fois le site validé par le restaurant -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -225,7 +262,7 @@ header.nav.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.5)}
     <div class="embers" id="embers" aria-hidden="true"></div>
     <div class="wrap">
       <span class="tag fx" style="--d:.1s">Burger Gourmet &amp; Grill · Villemomble</span>
-      <h1 class="fx" style="--d:.25s">Des burgers <span>signature</span>,<br>faits pour vous</h1>
+      <h1 class="fx" style="--d:.25s">Burgers gourmets <span>signature</span>,<br>à Villemomble</h1>
       <p class="lead fx" style="--d:.4s">Pain frais, steak haché frais, sauces maison et grillades. Sur place, à emporter ou en livraison, dans le centre de Villemomble.</p>
       <div class="cta fx" style="--d:.55s">
         <a class="btn primary" href="#carte">Voir la carte</a>
@@ -263,20 +300,36 @@ header.nav.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.5)}
 
   <section id="carte" class="menu-bg">
     <div class="wrap">
-      <div class="section-title"><h2>La carte</h2><p>Menu = sandwich ou burger + frites + boisson 33 cl (+1,50 € avec Freeze).</p></div>
-      <div class="tabs"><div class="tabs-inner" id="tabs"></div></div>
-      <div id="menu"></div>
+      <div class="section-title"><h2>La carte : burgers, sandwichs et grillades</h2><p>Menu = sandwich ou burger + frites + boisson 33 cl (+1,50 € avec Freeze).</p></div>
+      <div class="tabs"><div class="tabs-inner" id="tabs"><button class="tab active" data-id="burgers">Burgers gourmets</button><button class="tab" data-id="classic">Classic burgers</button><button class="tab" data-id="sandwichs">Authentic sandwichs</button><button class="tab" data-id="hotdog">Hot-dogs</button><button class="tab" data-id="snacks">Starters, paninis &amp; croqs</button><button class="tab" data-id="plats">Plats, pâtes &amp; salades</button><button class="tab" data-id="desserts">Desserts</button></div></div>
+      <div id="menu">
+<div class="cat" id="cat-burgers"><h3>Burgers gourmets</h3><p class="note">Pain frais, steak haché frais 150 g. Servis avec frites maison &amp; boisson 33 cl en menu (+1,50 € avec Freeze). Cuisson au choix : bleu, saignant, à point, bien cuit.</p><div class="items"><div class="item"><div><h4>L'American Gourmet</h4><p>Steak 150 g, tomates, salade, oignons rouges, cornichons, cheddar fondu, sauce maison.</p></div><div class="price">9,90 €<small>menu · seul 7,90 €</small></div></div><div class="item"><div><h4>Le Texan</h4><p>Steak 150 g, bœuf fumé, tomates, salade, oignons caramélisés, cornichons, cheddar fondu, sauce BBQ.</p></div><div class="price">11,90 €<small>menu · seul 9,90 €</small></div></div><div class="item"><div><h4>Le French</h4><p>Steak 150 g, lardons*, champignons, salade, tomate, oignons frits, emmental, sauce maison.</p></div><div class="price">11,90 €<small>menu · seul 9,90 €</small></div></div><div class="item"><div><h4>Le City</h4><p>Steak 150 g, bœuf fumé, œuf, salade, tomates, oignons caramélisés, cornichons, cheddar fondu.</p></div><div class="price">11,90 €<small>menu · seul 9,90 €</small></div></div><div class="item"><div><h4>L'Indien</h4><p>Filet de poulet tandoori, tomates, salade, oignons frits, cheddar fondu, sauce maison.</p></div><div class="price">9,90 €<small>menu</small></div></div><div class="item"><div><h4>Le Latino</h4><p>Steak 150 g, chorizo &amp; poivrons grillés, tomates, salade, oignons caramélisés, sauce maison épicée.</p></div><div class="price">11,90 €<small>menu · seul 10,90 €</small></div></div><div class="item"><div><h4>Le Mountain</h4><p>Steak 150 g, lardons*, raclette, salade, tomates, oignons caramélisés, cheddar fondu.</p></div><div class="price">12,50 €<small>menu · seul 10,50 €</small></div></div><div class="item"><div><h4>Le Farmer</h4><p>Steak 150 g, bœuf fumé, galette de pomme de terre, cheddar fondu, emmental, sauce maison.</p></div><div class="price">12,50 €<small>menu · seul 10,50 €</small></div></div><div class="item"><div><h4>L'Oriental</h4><p>Steak façon kefta 150 g, aubergine, tomates, salade, oignons caramélisés, sauce maison épicée.</p></div><div class="price">12,50 €<small>menu · seul 10,50 €</small></div></div></div></div>
+<div class="cat" id="cat-classic"><h3>Classic burgers</h3><p class="note">Servis avec frites &amp; boisson 33 cl (+1,50 € avec Freeze).</p><div class="items"><div class="item"><div><h4>Cheese</h4><p>1 steak 45 g, cheese.</p></div><div class="price">4,50 €<small>menu · seul 3,00 €</small></div></div><div class="item"><div><h4>Double Cheese</h4><p>2 steaks 45 g, 2 cheese.</p></div><div class="price">5,50 €<small>menu · seul 3,50 €</small></div></div><div class="item"><div><h4>Rustique</h4><p>2 steaks 90 g, 2 cheese.</p></div><div class="price">6,90 €<small>menu · seul 5,90 €</small></div></div><div class="item"><div><h4>Bacon Burger</h4><p>1 steak 90 g, cheese, bacon*, œuf.</p></div><div class="price">6,70 €<small>menu · seul 5,70 €</small></div></div><div class="item"><div><h4>Chicken Burger</h4><p>Chicken, cheese.</p></div><div class="price">6,00 €<small>menu · seul 5,00 €</small></div></div><div class="item"><div><h4>Royal Cheese</h4><p>1 steak 90 g, chicken, 2 cheese.</p></div><div class="price">6,50 €<small>menu · seul 5,50 €</small></div></div><div class="item"><div><h4>Country Burger</h4><p>Chicken, pommes de terre, 2 cheese.</p></div><div class="price">6,50 €<small>menu · seul 5,50 €</small></div></div><div class="item"><div><h4>Le Suprême</h4><p>1 steak 90 g, pommes de terre, 2 cheese.</p></div><div class="price">6,50 €<small>menu · seul 5,50 €</small></div></div><div class="item"><div><h4>Small Toast</h4><p>2 steaks, 2 cheese.</p></div><div class="price">6,90 €<small>menu · seul 5,90 €</small></div></div><div class="item"><div><h4>Big Toast</h4><p>3 steaks, 3 cheese.</p></div><div class="price">7,90 €<small>menu · seul 6,90 €</small></div></div><div class="item"><div><h4>Small Best</h4><p>Pain giant, 1 steak 180 g, 2 cheese.</p></div><div class="price">7,00 €<small>menu · seul 6,00 €</small></div></div><div class="item"><div><h4>Best Burger</h4><p>Pain giant, 2 steaks 180 g, 4 cheese.</p></div><div class="price">8,90 €<small>menu · seul 7,90 €</small></div></div></div><div class="kids" style="margin-top:22px"><div><h3>Menu enfant</h3><p>Jusqu'à 11 ans · hamburger ou 5 nuggets + frites ou potatoes + 1 Capri-Sun (supplément canette +0,50 €)</p></div><div class="price">4,50 €</div></div></div>
+<div class="cat" id="cat-sandwichs"><h3>Authentic sandwichs</h3><p class="note">Au choix en tortilla ou en pain maison. Servis avec frites &amp; boisson 33 cl (+1,50 € avec Freeze).</p><div class="sub">Chicken</div><div class="items" style="margin-top:14px"><div class="item"><div><h4>Le Curry</h4><p>Poulet curry, cheese.</p></div><div class="price">6,00 €<small>menu · seul 5,00 €</small></div></div><div class="item"><div><h4>Le Paprika</h4><p>Poulet paprika, cheese.</p></div><div class="price">6,00 €<small>menu · seul 5,00 €</small></div></div><div class="item"><div><h4>Le Mexicain</h4><p>Poulet sauce épicée, poivrons, cheese.</p></div><div class="price">6,00 €<small>menu · seul 5,00 €</small></div></div><div class="item"><div><h4>Le Forestier</h4><p>Escalope, sauce forestière aux champignons.</p></div><div class="price">6,90 €<small>menu · seul 5,90 €</small></div></div><div class="item"><div><h4>Le Parisien</h4><p>Escalope, jambon de dinde, cheese.</p></div><div class="price">6,90 €<small>menu · seul 5,90 €</small></div></div><div class="item"><div><h4>Le Boursin</h4><p>Escalope, sauce boursin.</p></div><div class="price">6,50 €<small>menu · seul 5,50 €</small></div></div><div class="item"><div><h4>Le Suprême</h4><p>Escalope, cordon bleu, 2 cheese.</p></div><div class="price">7,30 €<small>menu · seul 6,30 €</small></div></div><div class="item"><div><h4>Le Savoureux</h4><p>Escalope, pommes de terre, cheese.</p></div><div class="price">7,20 €<small>menu · seul 6,20 €</small></div></div><div class="item"><div><h4>Le 3 Fromages</h4><p>Escalope, boursin, cheese, emmental.</p></div><div class="price">7,80 €<small>menu · seul 6,80 €</small></div></div><div class="item"><div><h4>Le Suisse</h4><p>Escalope, sauce gruyère.</p></div><div class="price">6,50 €<small>menu · seul 5,50 €</small></div></div><div class="item"><div><h4>Le Chawarma</h4><p>Lamelles de viande grecque.</p></div><div class="price">6,00 €<small>menu · seul 5,00 €</small></div></div></div><div class="sub">Beef</div><div class="items" style="margin-top:14px"><div class="item"><div><h4>Double Time</h4><p>2 steaks, pommes de terre, 2 cheese.</p></div><div class="price">6,70 €<small>menu · seul 5,70 €</small></div></div><div class="item"><div><h4>Le Radical</h4><p>2 steaks, cordon bleu, 2 cheese.</p></div><div class="price">7,20 €<small>menu · seul 6,20 €</small></div></div><div class="item"><div><h4>Le Giga</h4><p>3 steaks, 3 cheese.</p></div><div class="price">6,80 €<small>menu · seul 5,80 €</small></div></div><div class="item"><div><h4>Le Beef</h4><p>2 steaks, œuf, 2 cheese.</p></div><div class="price">7,20 €<small>menu · seul 6,20 €</small></div></div><div class="item"><div><h4>Le Kefta</h4><p>Kefta, 2 cheese.</p></div><div class="price">7,50 €<small>menu · seul 6,50 €</small></div></div><div class="item"><div><h4>Le Buffalo</h4><p>2 steaks, double bacon*, 2 cheese.</p></div><div class="price">6,50 €<small>menu · seul 5,50 €</small></div></div><div class="item"><div><h4>Le Steak</h4><p>2 steaks, 2 cheese.</p></div><div class="price">6,30 €<small>menu · seul 5,30 €</small></div></div><div class="item"><div><h4>Le Maxigiga</h4><p>4 steaks, 4 cheese.</p></div><div class="price">7,30 €<small>menu · seul 6,30 €</small></div></div><div class="item"><div><h4>Le New-York</h4><p>3 steaks, œuf, jambon*, 2 cheese.</p></div><div class="price">7,50 €<small>menu · seul 6,50 €</small></div></div><div class="item"><div><h4>Le Chicken Beef</h4><p>2 steaks, escalope, 2 cheese.</p></div><div class="price">7,30 €<small>menu · seul 6,30 €</small></div></div></div></div>
+<div class="cat" id="cat-hotdog"><h3>Hot-dogs</h3><p class="note">Servis avec frites &amp; boisson 33 cl (+1,50 € avec Freeze).</p><div class="items"><div class="item"><div><h4>Classic</h4><p>Pain américain, saucisse de volaille, pickles, oignons frits, ketchup, moutarde.</p></div><div class="price">5,50 €<small>menu · seul 3,50 €</small></div></div><div class="item"><div><h4>Cheesy Dog</h4><p>Pain américain, saucisse de volaille, cheddar fondu, oignons frits, ketchup.</p></div><div class="price">5,70 €<small>menu · seul 3,70 €</small></div></div><div class="item"><div><h4>Cheesy Dog Fumé</h4><p>Pain américain, saucisse de volaille, cheddar fondu, bœuf fumé, oignons frits, ketchup.</p></div><div class="price">6,50 €<small>menu · seul 4,50 €</small></div></div></div></div>
+<div class="cat" id="cat-snacks"><h3>Starters, paninis &amp; croqs</h3><p class="note">Paninis et croqs : en menu avec frites &amp; boisson, ou seuls.</p><div class="sub">Starters</div><div class="items" style="margin-top:14px"><div class="item"><div><h4>Frites classiques</h4></div><div class="price">2,00 €</div></div><div class="item"><div><h4>Tenders ×3</h4></div><div class="price">3,90 €</div></div><div class="item"><div><h4>Nuggets ×8</h4></div><div class="price">4,50 €</div></div><div class="item"><div><h4>Wings ×8</h4></div><div class="price">5,50 €</div></div><div class="item"><div><h4>Onion rings ×8</h4></div><div class="price">4,00 €</div></div><div class="item"><div><h4>Mozza sticks ×5</h4></div><div class="price">4,00 €</div></div></div><div class="sub">Paninis</div><div class="items" style="margin-top:14px"><div class="item"><div><h4>Jambon*</h4></div><div class="price">5,70 €<small>menu · seul 4,00 €</small></div></div><div class="item"><div><h4>3 Fromages</h4></div><div class="price">5,70 €<small>menu · seul 4,00 €</small></div></div><div class="item"><div><h4>Steak</h4></div><div class="price">5,70 €<small>menu · seul 4,00 €</small></div></div><div class="item"><div><h4>Chicken curry</h4></div><div class="price">5,70 €<small>menu · seul 4,00 €</small></div></div><div class="item"><div><h4>Chicken paprika</h4></div><div class="price">5,70 €<small>menu · seul 4,00 €</small></div></div><div class="item"><div><h4>Saumon</h4></div><div class="price">6,50 €<small>menu · seul 5,30 €</small></div></div><div class="item"><div><h4>Grec</h4></div><div class="price">6,00 €<small>menu · seul 4,80 €</small></div></div></div><div class="sub">Croqs (supplément œuf +0,50 €)</div><div class="items" style="margin-top:14px"><div class="item"><div><h4>Monsieur</h4><p>Jambon*, cheese.</p></div><div class="price">5,70 €<small>menu · seul 3,70 €</small></div></div><div class="item"><div><h4>Madame</h4><p>Jambon*, cheese, œuf.</p></div><div class="price">6,20 €<small>menu · seul 4,20 €</small></div></div><div class="item"><div><h4>Boursin</h4><p>Jambon*, cheese, boursin.</p></div><div class="price">5,80 €<small>menu · seul 3,80 €</small></div></div><div class="item"><div><h4>Saumon</h4><p>Saumon, cheese.</p></div><div class="price">6,50 €<small>menu · seul 4,50 €</small></div></div><div class="item"><div><h4>Beef &amp; Cheese</h4><p>Jambon*, cheese, bœuf fumé, cheddar.</p></div><div class="price">6,50 €<small>menu · seul 4,50 €</small></div></div></div></div>
+<div class="cat" id="cat-plats"><h3>Plats, pâtes &amp; salades</h3><p class="note">Plats : accompagnement au choix (accompagnement supplémentaire +2 €). Cuisson de la viande au choix.</p><div class="sub">Plats</div><div class="items" style="margin-top:14px"><div class="item"><div><h4>L'Entrecôte</h4></div><div class="price">13,90 €</div></div><div class="item"><div><h4>Escalope de poulet crémeuse</h4></div><div class="price">10,90 €</div></div><div class="item"><div><h4>Brochettes poulet</h4><p>Duo de brochettes paprika et curry.</p></div><div class="price">9,90 €</div></div><div class="item"><div><h4>Brochettes kefta</h4><p>Duo de brochettes kefta.</p></div><div class="price">9,90 €</div></div><div class="item"><div><h4>Trio de brochettes</h4><p>Curry, paprika et kefta.</p></div><div class="price">13,90 €</div></div><div class="item"><div><h4>Brochettes bœuf fromage</h4><p>Duo de brochettes bœuf fromage.</p></div><div class="price">10,50 €</div></div><div class="item"><div><h4>Steak à cheval</h4><p>Steak haché frais 150 g, cheddar, œuf.</p></div><div class="price">8,90 €</div></div><div class="item"><div><h4>Steak à cheval XL</h4><p>Double steaks hachés frais 150 g, doubles cheddars, doubles œufs.</p></div><div class="price">12,90 €</div></div><div class="item"><div><h4>Cordon bleu maison</h4></div><div class="price">9,90 €</div></div><div class="item"><div><h4>Escalope milanaise</h4></div><div class="price">11,90 €</div></div></div><div class="sub">Pâtes (supplément fromage ou boursin +0,50 €)</div><div class="items" style="margin-top:14px"><div class="item"><div><h4>Pâtes au lardons</h4><p>Tagliatelles, crème, lardons*.</p></div><div class="price">9,90 €</div></div><div class="item"><div><h4>Pâtes au poulet « Bigmo »</h4><p>Tagliatelles, poulet, crème, boursin.</p></div><div class="price">9,90 €</div></div><div class="item"><div><h4>Pâtes au saumon</h4><p>Tagliatelles, crème, saumon fumé.</p></div><div class="price">9,90 €</div></div><div class="item"><div><h4>Pâtes à la bolognaise</h4><p>Tagliatelles, sauce bolognaise, viande hachée.</p></div><div class="price">9,90 €</div></div></div><div class="sub">Gratins (servis avec une petite salade)</div><div class="items" style="margin-top:14px"><div class="item"><div><h4>Gratin Savoyard</h4><p>Pomme de terre, lardons*, oignons, fromage à raclette.</p></div><div class="price">9,90 €</div></div><div class="item"><div><h4>Gratin Italia</h4><p>Pomme de terre, jambon fumé*, fromage.</p></div><div class="price">9,90 €</div></div></div><div class="sub">Salades</div><div class="items" style="margin-top:14px"><div class="item"><div><h4>Caesar salade</h4><p>Salade iceberg, poulet frais, croûtons, tomates, parmesan, oignons rouges, crousti oignons.</p></div><div class="price">8,90 €</div></div><div class="item"><div><h4>Island salade</h4><p>Salade iceberg, saumon fumé, avocat, tomates.</p></div><div class="price">9,90 €</div></div><div class="item"><div><h4>Mozza salade</h4><p>Tomates, mozzarella, crousti oignons.</p></div><div class="price">7,90 €</div></div><div class="item"><div><h4>Chicken salade</h4><p>Salade iceberg, poulet frais au curry, tomates, croûtons, parmesan.</p></div><div class="price">8,90 €</div></div><div class="item"><div><h4>Salade paysanne</h4><p>Salade iceberg, jambon, bacon fumé*, lardons, tomate, croûtons.</p></div><div class="price">8,90 €</div></div></div></div>
+<div class="cat" id="cat-desserts"><h3>Desserts</h3><div class="items"><div class="item"><div><h4>Tiramisu maison</h4><p>Oreo Nutella, Speculoos Nutella, Galettes bretonnes Nutella, Granola coco Nutella, façon Bounty Nutella (+0,30 €).</p></div><div class="price">3,90 €</div></div><div class="item"><div><h4>Tarte Daim</h4></div><div class="price">2,50 €</div></div><div class="item"><div><h4>Tiramisu Nubi</h4><p>Demandez nos parfums.</p></div><div class="price">2,50 €</div></div><div class="item"><div><h4>Gaufre sucre</h4></div><div class="price">2,50 €</div></div><div class="item"><div><h4>Gaufre Nutella</h4></div><div class="price">3,00 €</div></div><div class="item"><div><h4>Gaufre Nutella &amp; chantilly</h4></div><div class="price">3,50 €</div></div><div class="item"><div><h4>La Panna Cotta</h4><p>Framboise, mangue, Nutella.</p></div><div class="price">3,90 €</div></div><div class="item"><div><h4>Fondant chocolat</h4><p>Servi avec sa crème anglaise &amp; chantilly.</p></div><div class="price">3,50 €</div></div><div class="item"><div><h4>Crème brûlée</h4></div><div class="price">3,90 €</div></div><div class="item"><div><h4>Ananas flambé</h4></div><div class="price">4,00 €</div></div><div class="item"><div><h4>Mystère</h4><p>Glace vanille cœur meringue ou crème brûlée cœur caramel.</p></div><div class="price">3,50 €</div></div><div class="item"><div><h4>Glace enfant</h4></div><div class="price">1,50 €</div></div><div class="item"><div><h4>Granité</h4><p>Petit 2,50 € · Grand 3,50 €</p></div><div class="price">dès 2,50 €</div></div></div></div>
+</div>
       <p class="menu-footnote">Prix indicatifs, susceptibles d'évoluer. Merci de confirmer auprès du restaurant. * Contient du porc.</p>
     </div>
   </section>
 
   <section id="infos">
     <div class="wrap">
-      <div class="section-title"><h2>Infos pratiques</h2></div>
+      <div class="section-title"><h2>Horaires et accès à Villemomble</h2></div>
       <div class="info">
         <div class="panel">
           <h3>Horaires</h3>
-          <ul class="hours" id="hours"></ul>
+          <ul class="hours" id="hours">
+<li data-day="1"><span>Lundi</span><span>11h00 – 23h30</span></li>
+<li data-day="2"><span>Mardi</span><span>11h00 – 23h30</span></li>
+<li data-day="3"><span>Mercredi</span><span>11h00 – 23h30</span></li>
+<li data-day="4"><span>Jeudi</span><span>11h00 – 23h30</span></li>
+<li data-day="5"><span>Vendredi</span><span>14h30 – 23h30</span></li>
+<li data-day="6"><span>Samedi</span><span>11h00 – 23h30</span></li>
+<li data-day="0"><span>Dimanche</span><span>13h30 – 23h30</span></li>
+</ul>
         </div>
         <div class="panel contact">
           <h3>Nous trouver</h3>
@@ -309,159 +362,8 @@ header.nav.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.5)}
 </div>
 
 <script>
-/* ---------- Données de la carte ---------- */
-const MENU = [
-  { id:'burgers', label:'Burgers gourmets', note:'Pain frais, steak haché frais 150 g. Servis avec frites maison & boisson 33 cl en menu (+1,50 € avec Freeze). Cuisson au choix : bleu, saignant, à point, bien cuit.',
-    items:[
-      {n:"L'American Gourmet",d:"Steak 150 g, tomates, salade, oignons rouges, cornichons, cheddar fondu, sauce maison.",m:9.90,s:7.90},
-      {n:"Le Texan",d:"Steak 150 g, bœuf fumé, tomates, salade, oignons caramélisés, cornichons, cheddar fondu, sauce BBQ.",m:11.90,s:9.90},
-      {n:"Le French",d:"Steak 150 g, lardons*, champignons, salade, tomate, oignons frits, emmental, sauce maison.",m:11.90,s:9.90},
-      {n:"Le City",d:"Steak 150 g, bœuf fumé, œuf, salade, tomates, oignons caramélisés, cornichons, cheddar fondu.",m:11.90,s:9.90},
-      {n:"L'Indien",d:"Filet de poulet tandoori, tomates, salade, oignons frits, cheddar fondu, sauce maison.",m:9.90},
-      {n:"Le Latino",d:"Steak 150 g, chorizo & poivrons grillés, tomates, salade, oignons caramélisés, sauce maison épicée.",m:11.90,s:10.90},
-      {n:"Le Mountain",d:"Steak 150 g, lardons*, raclette, salade, tomates, oignons caramélisés, cheddar fondu.",m:12.50,s:10.50},
-      {n:"Le Farmer",d:"Steak 150 g, bœuf fumé, galette de pomme de terre, cheddar fondu, emmental, sauce maison.",m:12.50,s:10.50},
-      {n:"L'Oriental",d:"Steak façon kefta 150 g, aubergine, tomates, salade, oignons caramélisés, sauce maison épicée.",m:12.50,s:10.50}
-    ]},
-  { id:'classic', label:'Classic burgers', note:'Servis avec frites & boisson 33 cl (+1,50 € avec Freeze).',
-    items:[
-      {n:"Cheese",d:"1 steak 45 g, cheese.",m:4.50,s:3.00},
-      {n:"Double Cheese",d:"2 steaks 45 g, 2 cheese.",m:5.50,s:3.50},
-      {n:"Rustique",d:"2 steaks 90 g, 2 cheese.",m:6.90,s:5.90},
-      {n:"Bacon Burger",d:"1 steak 90 g, cheese, bacon*, œuf.",m:6.70,s:5.70},
-      {n:"Chicken Burger",d:"Chicken, cheese.",m:6.00,s:5.00},
-      {n:"Royal Cheese",d:"1 steak 90 g, chicken, 2 cheese.",m:6.50,s:5.50},
-      {n:"Country Burger",d:"Chicken, pommes de terre, 2 cheese.",m:6.50,s:5.50},
-      {n:"Le Suprême",d:"1 steak 90 g, pommes de terre, 2 cheese.",m:6.50,s:5.50},
-      {n:"Small Toast",d:"2 steaks, 2 cheese.",m:6.90,s:5.90},
-      {n:"Big Toast",d:"3 steaks, 3 cheese.",m:7.90,s:6.90},
-      {n:"Small Best",d:"Pain giant, 1 steak 180 g, 2 cheese.",m:7.00,s:6.00},
-      {n:"Best Burger",d:"Pain giant, 2 steaks 180 g, 4 cheese.",m:8.90,s:7.90}
-    ],
-    extra:{title:"Menu enfant",sub:"Jusqu'à 11 ans · hamburger ou 5 nuggets + frites ou potatoes + 1 Capri-Sun (supplément canette +0,50 €)",price:"4,50 €"}},
-  { id:'sandwichs', label:'Authentic sandwichs', note:'Au choix en tortilla ou en pain maison. Servis avec frites & boisson 33 cl (+1,50 € avec Freeze).',
-    groups:[
-      {title:'Chicken',items:[
-        {n:"Le Curry",d:"Poulet curry, cheese.",m:6.00,s:5.00},
-        {n:"Le Paprika",d:"Poulet paprika, cheese.",m:6.00,s:5.00},
-        {n:"Le Mexicain",d:"Poulet sauce épicée, poivrons, cheese.",m:6.00,s:5.00},
-        {n:"Le Forestier",d:"Escalope, sauce forestière aux champignons.",m:6.90,s:5.90},
-        {n:"Le Parisien",d:"Escalope, jambon de dinde, cheese.",m:6.90,s:5.90},
-        {n:"Le Boursin",d:"Escalope, sauce boursin.",m:6.50,s:5.50},
-        {n:"Le Suprême",d:"Escalope, cordon bleu, 2 cheese.",m:7.30,s:6.30},
-        {n:"Le Savoureux",d:"Escalope, pommes de terre, cheese.",m:7.20,s:6.20},
-        {n:"Le 3 Fromages",d:"Escalope, boursin, cheese, emmental.",m:7.80,s:6.80},
-        {n:"Le Suisse",d:"Escalope, sauce gruyère.",m:6.50,s:5.50},
-        {n:"Le Chawarma",d:"Lamelles de viande grecque.",m:6.00,s:5.00}
-      ]},
-      {title:'Beef',items:[
-        {n:"Double Time",d:"2 steaks, pommes de terre, 2 cheese.",m:6.70,s:5.70},
-        {n:"Le Radical",d:"2 steaks, cordon bleu, 2 cheese.",m:7.20,s:6.20},
-        {n:"Le Giga",d:"3 steaks, 3 cheese.",m:6.80,s:5.80},
-        {n:"Le Beef",d:"2 steaks, œuf, 2 cheese.",m:7.20,s:6.20},
-        {n:"Le Kefta",d:"Kefta, 2 cheese.",m:7.50,s:6.50},
-        {n:"Le Buffalo",d:"2 steaks, double bacon*, 2 cheese.",m:6.50,s:5.50},
-        {n:"Le Steak",d:"2 steaks, 2 cheese.",m:6.30,s:5.30},
-        {n:"Le Maxigiga",d:"4 steaks, 4 cheese.",m:7.30,s:6.30},
-        {n:"Le New-York",d:"3 steaks, œuf, jambon*, 2 cheese.",m:7.50,s:6.50},
-        {n:"Le Chicken Beef",d:"2 steaks, escalope, 2 cheese.",m:7.30,s:6.30}
-      ]}
-    ]},
-  { id:'hotdog', label:'Hot-dogs', note:'Servis avec frites & boisson 33 cl (+1,50 € avec Freeze).',
-    items:[
-      {n:"Classic",d:"Pain américain, saucisse de volaille, pickles, oignons frits, ketchup, moutarde.",m:5.50,s:3.50},
-      {n:"Cheesy Dog",d:"Pain américain, saucisse de volaille, cheddar fondu, oignons frits, ketchup.",m:5.70,s:3.70},
-      {n:"Cheesy Dog Fumé",d:"Pain américain, saucisse de volaille, cheddar fondu, bœuf fumé, oignons frits, ketchup.",m:6.50,s:4.50}
-    ]},
-  { id:'snacks', label:'Starters, paninis & croqs', note:'Paninis et croqs : en menu avec frites & boisson, ou seuls.',
-    groups:[
-      {title:'Starters',items:[
-        {n:"Frites classiques",p:2.00},{n:"Tenders ×3",p:3.90},{n:"Nuggets ×8",p:4.50},
-        {n:"Wings ×8",p:5.50},{n:"Onion rings ×8",p:4.00},{n:"Mozza sticks ×5",p:4.00}
-      ]},
-      {title:'Paninis',items:[
-        {n:"Jambon*",m:5.70,s:4.00},{n:"3 Fromages",m:5.70,s:4.00},{n:"Steak",m:5.70,s:4.00},
-        {n:"Chicken curry",m:5.70,s:4.00},{n:"Chicken paprika",m:5.70,s:4.00},
-        {n:"Saumon",m:6.50,s:5.30},{n:"Grec",m:6.00,s:4.80}
-      ]},
-      {title:'Croqs (supplément œuf +0,50 €)',items:[
-        {n:"Monsieur",d:"Jambon*, cheese.",m:5.70,s:3.70},
-        {n:"Madame",d:"Jambon*, cheese, œuf.",m:6.20,s:4.20},
-        {n:"Boursin",d:"Jambon*, cheese, boursin.",m:5.80,s:3.80},
-        {n:"Saumon",d:"Saumon, cheese.",m:6.50,s:4.50},
-        {n:"Beef & Cheese",d:"Jambon*, cheese, bœuf fumé, cheddar.",m:6.50,s:4.50}
-      ]}
-    ]},
-  { id:'plats', label:'Plats, pâtes & salades', note:'Plats : accompagnement au choix (accompagnement supplémentaire +2 €). Cuisson de la viande au choix.',
-    groups:[
-      {title:'Plats',items:[
-        {n:"L'Entrecôte",p:13.90},
-        {n:"Escalope de poulet crémeuse",p:10.90},
-        {n:"Brochettes poulet",d:"Duo de brochettes paprika et curry.",p:9.90},
-        {n:"Brochettes kefta",d:"Duo de brochettes kefta.",p:9.90},
-        {n:"Trio de brochettes",d:"Curry, paprika et kefta.",p:13.90},
-        {n:"Brochettes bœuf fromage",d:"Duo de brochettes bœuf fromage.",p:10.50},
-        {n:"Steak à cheval",d:"Steak haché frais 150 g, cheddar, œuf.",p:8.90},
-        {n:"Steak à cheval XL",d:"Double steaks hachés frais 150 g, doubles cheddars, doubles œufs.",p:12.90},
-        {n:"Cordon bleu maison",p:9.90},
-        {n:"Escalope milanaise",p:11.90}
-      ]},
-      {title:'Pâtes (supplément fromage ou boursin +0,50 €)',items:[
-        {n:"Pâtes au lardons",d:"Tagliatelles, crème, lardons*.",p:9.90},
-        {n:"Pâtes au poulet « Bigmo »",d:"Tagliatelles, poulet, crème, boursin.",p:9.90},
-        {n:"Pâtes au saumon",d:"Tagliatelles, crème, saumon fumé.",p:9.90},
-        {n:"Pâtes à la bolognaise",d:"Tagliatelles, sauce bolognaise, viande hachée.",p:9.90}
-      ]},
-      {title:'Gratins (servis avec une petite salade)',items:[
-        {n:"Gratin Savoyard",d:"Pomme de terre, lardons*, oignons, fromage à raclette.",p:9.90},
-        {n:"Gratin Italia",d:"Pomme de terre, jambon fumé*, fromage.",p:9.90}
-      ]},
-      {title:'Salades',items:[
-        {n:"Caesar salade",d:"Salade iceberg, poulet frais, croûtons, tomates, parmesan, oignons rouges, crousti oignons.",p:8.90},
-        {n:"Island salade",d:"Salade iceberg, saumon fumé, avocat, tomates.",p:9.90},
-        {n:"Mozza salade",d:"Tomates, mozzarella, crousti oignons.",p:7.90},
-        {n:"Chicken salade",d:"Salade iceberg, poulet frais au curry, tomates, croûtons, parmesan.",p:8.90},
-        {n:"Salade paysanne",d:"Salade iceberg, jambon, bacon fumé*, lardons, tomate, croûtons.",p:8.90}
-      ]}
-    ]},
-  { id:'desserts', label:'Desserts', note:'',
-    items:[
-      {n:"Tiramisu maison",d:"Oreo Nutella, Speculoos Nutella, Galettes bretonnes Nutella, Granola coco Nutella, façon Bounty Nutella (+0,30 €).",p:3.90},
-      {n:"Tarte Daim",p:2.50},
-      {n:"Tiramisu Nubi",d:"Demandez nos parfums.",p:2.50},
-      {n:"Gaufre sucre",p:2.50},
-      {n:"Gaufre Nutella",p:3.00},
-      {n:"Gaufre Nutella & chantilly",p:3.50},
-      {n:"La Panna Cotta",d:"Framboise, mangue, Nutella.",p:3.90},
-      {n:"Fondant chocolat",d:"Servi avec sa crème anglaise & chantilly.",p:3.50},
-      {n:"Crème brûlée",p:3.90},
-      {n:"Ananas flambé",p:4.00},
-      {n:"Mystère",d:"Glace vanille cœur meringue ou crème brûlée cœur caramel.",p:3.50},
-      {n:"Glace enfant",p:1.50},
-      {n:"Granité",d:"Petit 2,50 € · Grand 3,50 €",p:2.50}
-    ]}
-];
-
-/* ---------- Rendu ---------- */
-const eur = v => v.toFixed(2).replace('.',',') + ' €';
-const esc = s => String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-function itemHTML(it){
-  let price='';
-  if(it.m!==undefined && it.s!==undefined) price = `<div class="price">${eur(it.m)}<small>menu · seul ${eur(it.s)}</small></div>`;
-  else if(it.m!==undefined) price = `<div class="price">${eur(it.m)}<small>menu</small></div>`;
-  else price = `<div class="price">${it.n==='Granité'?'dès ':''}${eur(it.p)}</div>`;
-  return `<div class="item"><div><h4>${esc(it.n)}</h4>${it.d?`<p>${esc(it.d)}</p>`:''}</div>${price}</div>`;
-}
-const menuEl = document.getElementById('menu');
+/* La carte, les onglets et les horaires sont écrits directement dans le HTML (meilleur pour le référencement). */
 const tabsEl = document.getElementById('tabs');
-menuEl.innerHTML = MENU.map(c=>{
-  let body='';
-  if(c.groups) body = c.groups.map(g=>`<div class="sub">${esc(g.title)}</div><div class="items" style="margin-top:14px">${g.items.map(itemHTML).join('')}</div>`).join('');
-  else body = `<div class="items">${c.items.map(itemHTML).join('')}</div>`;
-  const extra = c.extra ? `<div class="kids" style="margin-top:22px"><div><h3>${esc(c.extra.title)}</h3><p>${esc(c.extra.sub)}</p></div><div class="price">${c.extra.price}</div></div>` : '';
-  return `<div class="cat" id="cat-${c.id}"><h3>${esc(c.label)}</h3>${c.note?`<p class="note">${esc(c.note)}</p>`:''}${body}${extra}</div>`;
-}).join('');
-tabsEl.innerHTML = MENU.map((c,i)=>`<button class="tab${i===0?' active':''}" data-id="${c.id}">${esc(c.label)}</button>`).join('');
 tabsEl.addEventListener('click',e=>{
   const b=e.target.closest('.tab'); if(!b) return;
   document.getElementById('cat-'+b.dataset.id).scrollIntoView({behavior:'smooth',block:'start'});
@@ -485,7 +387,6 @@ const HOURS = {
   1:['11:00','23:30'], 2:['11:00','23:30'], 3:['11:00','23:30'], 4:['11:00','23:30'],
   5:['14:30','23:30'], 6:['11:00','23:30'], 0:['13:30','23:30']
 };
-const DAYS = [[1,'Lundi'],[2,'Mardi'],[3,'Mercredi'],[4,'Jeudi'],[5,'Vendredi'],[6,'Samedi'],[0,'Dimanche']];
 const parisNow = () => {
   const parts = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Paris',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
   const get = t => parts.find(p=>p.type===t).value;
@@ -494,8 +395,7 @@ const parisNow = () => {
 };
 const toMin = s => { const [h,m]=s.split(':'); return +h*60 + +m; };
 const now = parisNow();
-document.getElementById('hours').innerHTML = DAYS.map(([d,l])=>
-  `<li class="${d===now.day?'today':''}"><span>${l}</span><span>${HOURS[d][0].replace(':','h')} – ${HOURS[d][1].replace(':','h')}</span></li>`).join('');
+document.querySelectorAll('#hours li').forEach(li=>li.classList.toggle('today', +li.dataset.day===now.day));
 const [o,c] = HOURS[now.day].map(toMin);
 const st = document.getElementById('status');
 if(now.min>=o && now.min<c){ st.className='status open'; st.querySelector('span').textContent=`Ouvert maintenant · jusqu'à ${HOURS[now.day][1].replace(':','h')}`; }

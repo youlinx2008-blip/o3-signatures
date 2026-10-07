@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O3 Signatures – Burger Gourmet &amp; Grill à Villemomble</title>
+<meta name="description" content="O3 Signatures, burgers gourmets, sandwichs, grillades, pâtes et desserts maison au 65 Grande Rue à Villemomble. Sur place, à emporter ou en livraison.">
+<!-- Maquette de démonstration : retirer la ligne ci-dessous une fois le site validé par le restaurant -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0d0d; --bg2:#141414; --card:#1a1a1a; --line:#2a2a2a;
+  --accent:#f26a1b; --accent2:#ff8a3d; --text:#f3efe8; --muted:#a39d94;
+  --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Bandeau démo – supprimer l'élément .demo-banner pour la version finale */
+.demo-banner{background:var(--accent);color:#111;text-align:center;font-size:13px;font-weight:600;padding:8px 12px}
+
+header.nav{position:sticky;top:0;z-index:50;background:rgba(13,13,13,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Oswald';font-size:22px;letter-spacing:.06em;font-weight:700}
+.brand .dot{width:34px;height:34px;border:2px solid var(--accent);border-radius:50%;display:grid;place-items:center;color:var(--accent);font-size:13px}
+.nav ul{display:flex;gap:26px;list-style:none;font-size:14px;font-weight:500;color:var(--muted)}
+.nav ul a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:15px;border:2px solid var(--accent);cursor:pointer;transition:.2s}
+.btn.primary{background:var(--accent);color:#111}
+.btn.primary:hover{background:var(--accent2);border-color:var(--accent2)}
+.btn.ghost{background:transparent;color:var(--text)}
+.btn.ghost:hover{background:var(--accent);color:#111}
+@media(max-width:760px){.nav ul{display:none}}
+
+.hero{position:relative;padding:90px 0 80px;text-align:center;overflow:hidden;
+  background:radial-gradient(900px 400px at 50% -10%,rgba(242,106,27,.28),transparent 70%),
+  repeating-linear-gradient(45deg,#101010 0 14px,#0d0d0d 14px 28px)}
+.hero .tag{display:inline-block;border:1px solid var(--accent);color:var(--accent);padding:6px 16px;border-radius:999px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px}
+.hero h1{font-size:clamp(44px,9vw,96px);line-height:1.02;font-weight:700}
+.hero h1 span{color:var(--accent)}
+.hero p.lead{max-width:620px;margin:20px auto 32px;color:var(--muted);font-size:18px}
+.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.stats{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin-top:48px}
+.stat{text-align:center}
+.stat b{display:block;font-family:'Oswald';font-size:34px;color:var(--accent)}
+.stat small{color:var(--muted);font-size:13px}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:14px;color:var(--muted)}
+.status i{width:10px;height:10px;border-radius:50%;background:#777;display:inline-block}
+.status.open i{background:#3ecf6e;box-shadow:0 0 10px #3ecf6e}
+.status.closed i{background:#e5484d}
+
+section{padding:76px 0}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title h2{font-size:clamp(30px,5vw,46px)}
+.section-title h2::after{content:"";display:block;width:60px;height:3px;background:var(--accent);margin:14px auto 0}
+.section-title p{color:var(--muted);margin-top:14px}
+
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.feature{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.feature .ico{font-size:28px;margin-bottom:12px}
+.feature h3{font-size:19px;margin-bottom:6px}
+.feature p{color:var(--muted);font-size:15px}
+
+.menu-bg{background:var(--bg2)}
+.tabs{position:sticky;top:64px;z-index:40;background:var(--bg2);padding:12px 0;margin:0 -20px 28px;border-bottom:1px solid var(--line)}
+.tabs-inner{display:flex;gap:8px;overflow-x:auto;padding:0 20px;scrollbar-width:none}
+.tabs-inner::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);font-weight:500;font-size:14px;cursor:pointer;transition:.15s;font-family:inherit}
+.tab:hover{color:var(--text)}
+.tab.active{background:var(--accent);border-color:var(--accent);color:#111;font-weight:600}
+.cat{margin-bottom:46px}
+.cat h3{font-size:28px;color:var(--accent);margin-bottom:6px}
+.cat .note{color:var(--muted);font-size:14px;margin-bottom:18px}
+.sub{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;color:var(--text);font-size:17px;margin:22px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.item h4{font-family:'Oswald';text-transform:uppercase;letter-spacing:.05em;font-size:17px;font-weight:500}
+.item p{color:var(--muted);font-size:13.5px;margin-top:4px}
+.price{text-align:right;flex:none;font-family:'Oswald';font-size:19px;color:var(--accent2);line-height:1.25}
+.price small{display:block;font-family:'Inter';font-size:12px;color:var(--muted);font-weight:400}
+.menu-footnote{color:var(--muted);font-size:13px;text-align:center;margin-top:10px}
+.kids{background:linear-gradient(135deg,rgba(242,106,27,.18),transparent);border:1px solid var(--accent);border-radius:var(--radius);padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.kids h3{font-size:22px}
+.kids p{color:var(--muted);font-size:14.5px}
+.kids .price{font-size:34px}
+
+.info{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:800px){.info{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.panel h3{font-size:22px;color:var(--accent);margin-bottom:16px}
+.hours{list-style:none}
+.hours li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.hours li:last-child{border-bottom:0}
+.hours li.today{color:var(--accent2);font-weight:600}
+.contact p{margin-bottom:12px;color:var(--muted)}
+.contact p b{color:var(--text);font-weight:600}
+.contact .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.map{margin-top:26px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);height:340px}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.3) invert(.9) hue-rotate(180deg) contrast(.9)}
+
+footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--muted);font-size:13.5px}
+footer .brand{justify-content:center;margin-bottom:10px;color:var(--text)}
+
+.callbar{display:none}
+@media(max-width:760px){
+  .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60}
+  .callbar a{flex:1;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+  body{padding-bottom:76px}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Maquette de démonstration – site non officiel, en attente de validation par le restaurant</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><span class="dot">O3</span> SIGNATURES</a>
+    <ul>
+      <li><a href="#atouts">Pourquoi nous</a></li>
+      <li><a href="#carte">La carte</a></li>
+      <li><a href="#infos">Infos pratiques</a></li>
+    </ul>
+    <a class="btn primary" href="tel:+33148543271">01 48 54 32 71</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <span class="tag">Burger Gourmet &amp; Grill · Villemomble</span>
+      <h1>Des burgers <span>signature</span>,<br>faits pour vous</h1>
+      <p class="lead">Pain frais, steak haché frais, sauces maison et grillades. Sur place, à emporter ou en livraison, dans le centre de Villemomble.</p>
+      <div class="cta">
+        <a class="btn primary" href="#carte">Voir la carte</a>
+        <a class="btn ghost" href="tel:+33148543271">Commander par téléphone</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>4,6 ★</b><small>sur Google (978 avis)</small></div>
+        <div class="stat"><b>10–20 €</b><small>par personne</small></div>
+        <div class="stat"><b>7j/7</b><small>jusqu'à 23h30</small></div>
+      </div>
+      <div class="status" id="status"><i></i><span>Horaires en cours de chargement…</span></div>
+    </div>
+  </div>
+
+  <section id="atouts">
+    <div class="wrap">
+      <div class="section-title"><h2>Pourquoi O3 Signatures</h2><p>Une carte large, des produits frais et des prix doux.</p></div>
+      <div class="features">
+        <div class="feature"><div class="ico">🍔</div><h3>Burgers gourmets</h3><p>Pain frais, steak haché frais 150 g, cheddar fondu et sauce maison.</p></div>
+        <div class="feature"><div class="ico">🥙</div><h3>Sandwichs authentiques</h3><p>Au choix en tortilla ou en pain maison, servis avec frites et boisson.</p></div>
+        <div class="feature"><div class="ico">🍝</div><h3>Plats &amp; grillades</h3><p>Entrecôte, brochettes, cordon bleu maison, pâtes et gratins.</p></div>
+        <div class="feature"><div class="ico">🍮</div><h3>Desserts maison</h3><p>Tiramisu, gaufres, panna cotta, fondant chocolat et crème brûlée.</p></div>
+        <div class="feature"><div class="ico">👶</div><h3>Menu enfant</h3><p>Hamburger ou nuggets, frites et Capri-Sun pour les moins de 11 ans.</p></div>
+        <div class="feature"><div class="ico">🥗</div><h3>Options végétariennes</h3><p>Salades, mozza sticks, pâtes et gratins pour tous les goûts. Wi-Fi offert.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="carte" class="menu-bg">
+    <div class="wrap">
+      <div class="section-title"><h2>La carte</h2><p>Menu = sandwich ou burger + frites + boisson 33 cl (+1,50 € avec Freeze).</p></div>
+      <div class="tabs"><div class="tabs-inner" id="tabs"></div></div>
+      <div id="menu"></div>
+      <p class="menu-footnote">Prix indicatifs, susceptibles d'évoluer. Merci de confirmer auprès du restaurant. * Contient du porc.</p>
+    </div>
+  </section>
+
+  <section id="infos">
+    <div class="wrap">
+      <div class="section-title"><h2>Infos pratiques</h2></div>
+      <div class="info">
+        <div class="panel">
+          <h3>Horaires</h3>
+          <ul class="hours" id="hours"></ul>
+        </div>
+        <div class="panel contact">
+          <h3>Nous trouver</h3>
+          <p><b>O3 Signatures Burger Gourmet &amp; Grill</b><br>65 Grande Rue<br>93250 Villemomble</p>
+          <p><b>Téléphone</b><br><a href="tel:+33148543271">01 48 54 32 71</a></p>
+          <p>Sur place · À emporter · Livraison</p>
+          <div class="btns">
+            <a class="btn primary" href="tel:+33148543271">Appeler</a>
+            <a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=65+Grande+Rue+93250+Villemomble">Itinéraire</a>
+          </div>
+        </div>
+      </div>
+      <div class="map">
+        <iframe title="Plan d'accès O3 Signatures" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=65+Grande+Rue+93250+Villemomble&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><span class="dot">O3</span> SIGNATURES</div>
+    <p>65 Grande Rue, 93250 Villemomble · 01 48 54 32 71</p>
+    <p style="margin-top:6px">Maquette de démonstration. Site non officiel.</p>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn primary" href="tel:+33148543271">Commander · 01 48 54 32 71</a>
+</div>
+
+<script>
+/* ---------- Données de la carte ---------- */
+const MENU = [
+  { id:'burgers', label:'Burgers gourmets', note:'Pain frais, steak haché frais 150 g. Servis avec frites maison & boisson 33 cl en menu (+1,50 € avec Freeze). Cuisson au choix : bleu, saignant, à point, bien cuit.',
+    items:[
+      {n:"L'American Gourmet",d:"Steak 150 g, tomates, salade, oignons rouges, cornichons, cheddar fondu, sauce maison.",m:9.90,s:7.90},
+      {n:"Le Texan",d:"Steak 150 g, bœuf fumé, tomates, salade, oignons caramélisés, cornichons, cheddar fondu, sauce BBQ.",m:11.90,s:9.90},
+      {n:"Le French",d:"Steak 150 g, lardons*, champignons, salade, tomate, oignons frits, emmental, sauce maison.",m:11.90,s:9.90},
+      {n:"Le City",d:"Steak 150 g, bœuf fumé, œuf, salade, tomates, oignons caramélisés, cornichons, cheddar fondu.",m:11.90,s:9.90},
+      {n:"L'Indien",d:"Filet de poulet tandoori, tomates, salade, oignons frits, cheddar fondu, sauce maison.",m:9.90},
+      {n:"Le Latino",d:"Steak 150 g, chorizo & poivrons grillés, tomates, salade, oignons caramélisés, sauce maison épicée.",m:11.90,s:10.90},
+      {n:"Le Mountain",d:"Steak 150 g, lardons*, raclette, salade, tomates, oignons caramélisés, cheddar fondu.",m:12.50,s:10.50},
+      {n:"Le Farmer",d:"Steak 150 g, bœuf fumé, galette de pomme de terre, cheddar fondu, emmental, sauce maison.",m:12.50,s:10.50},
+      {n:"L'Oriental",d:"Steak façon kefta 150 g, aubergine, tomates, salade, oignons caramélisés, sauce maison épicée.",m:12.50,s:10.50}
+    ]},
+  { id:'classic', label:'Classic burgers', note:'Servis avec frites & boisson 33 cl (+1,50 € avec Freeze).',
+    items:[
+      {n:"Cheese",d:"1 steak 45 g, cheese.",m:4.50,s:3.00},
+      {n:"Double Cheese",d:"2 steaks 45 g, 2 cheese.",m:5.50,s:3.50},
+      {n:"Rustique",d:"2 steaks 90 g, 2 cheese.",m:6.90,s:5.90},
+      {n:"Bacon Burger",d:"1 steak 90 g, cheese, bacon*, œuf.",m:6.70,s:5.70},
+      {n:"Chicken Burger",d:"Chicken, cheese.",m:6.00,s:5.00},
+      {n:"Royal Cheese",d:"1 steak 90 g, chicken, 2 cheese.",m:6.50,s:5.50},
+      {n:"Country Burger",d:"Chicken, pommes de terre, 2 cheese.",m:6.50,s:5.50},
+      {n:"Le Suprême",d:"1 steak 90 g, pommes de terre, 2 cheese.",m:6.50,s:5.50},
+      {n:"Small Toast",d:"2 steaks, 2 cheese.",m:6.90,s:5.90},
+      {n:"Big Toast",d:"3 steaks, 3 cheese.",m:7.90,s:6.90},
+      {n:"Small Best",d:"Pain giant, 1 steak 180 g, 2 cheese.",m:7.00,s:6.00},
+      {n:"Best Burger",d:"Pain giant, 2 steaks 180 g, 4 cheese.",m:8.90,s:7.90}
+    ],
+    extra:{title:"Menu enfant",sub:"Jusqu'à 11 ans · hamburger ou 5 nuggets + frites ou potatoes + 1 Capri-Sun (supplément canette +0,50 €)",price:"4,50 €"}},
+  { id:'sandwichs', label:'Authentic sandwichs', note:'Au choix en tortilla ou en pain maison. Servis avec frites & boisson 33 cl (+1,50 € avec Freeze).',
+    groups:[
+      {title:'Chicken',items:[
+        {n:"Le Curry",d:"Poulet curry, cheese.",m:6.00,s:5.00},
+        {n:"Le Paprika",d:"Poulet paprika, cheese.",m:6.00,s:5.00},
+        {n:"Le Mexicain",d:"Poulet sauce épicée, poivrons, cheese.",m:6.00,s:5.00},
+        {n:"Le Forestier",d:"Escalope, sauce forestière aux champignons.",m:6.90,s:5.90},
+        {n:"Le Parisien",d:"Escalope, jambon de dinde, cheese.",m:6.90,s:5.90},
+        {n:"Le Boursin",d:"Escalope, sauce boursin.",m:6.50,s:5.50},
+        {n:"Le Suprême",d:"Escalope, cordon bleu, 2 cheese.",m:7.30,s:6.30},
+        {n:"Le Savoureux",d:"Escalope, pommes de terre, cheese.",m:7.20,s:6.20},
+        {n:"Le 3 Fromages",d:"Escalope, boursin, cheese, emmental.",m:7.80,s:6.80},
+        {n:"Le Suisse",d:"Escalope, sauce gruyère.",m:6.50,s:5.50},
+        {n:"Le Chawarma",d:"Lamelles de viande grecque.",m:6.00,s:5.00}
+      ]},
+      {title:'Beef',items:[
+        {n:"Double Time",d:"2 steaks, pommes de terre, 2 cheese.",m:6.70,s:5.70},
+        {n:"Le Radical",d:"2 steaks, cordon bleu, 2 cheese.",m:7.20,s:6.20},
+        {n:"Le Giga",d:"3 steaks, 3 cheese.",m:6.80,s:5.80},
+        {n:"Le Beef",d:"2 steaks, œuf, 2 cheese.",m:7.20,s:6.20},
+        {n:"Le Kefta",d:"Kefta, 2 cheese.",m:7.50,s:6.50},
+        {n:"Le Buffalo",d:"2 steaks, double bacon*, 2 cheese.",m:6.50,s:5.50},
+        {n:"Le Steak",d:"2 steaks, 2 cheese.",m:6.30,s:5.30},
+        {n:"Le Maxigiga",d:"4 steaks, 4 cheese.",m:7.30,s:6.30},
+        {n:"Le New-York",d:"3 steaks, œuf, jambon*, 2 cheese.",m:7.50,s:6.50},
+        {n:"Le Chicken Beef",d:"2 steaks, escalope, 2 cheese.",m:7.30,s:6.30}
+      ]}
+    ]},
+  { id:'hotdog', label:'Hot-dogs', note:'Servis avec frites & boisson 33 cl (+1,50 € avec Freeze).',
+    items:[
+      {n:"Classic",d:"Pain américain, saucisse de volaille, pickles, oignons frits, ketchup, moutarde.",m:5.50,s:3.50},
+      {n:"Cheesy Dog",d:"Pain américain, saucisse de volaille, cheddar fondu, oignons frits, ketchup.",m:5.70,s:3.70},
+      {n:"Cheesy Dog Fumé",d:"Pain américain, saucisse de volaille, cheddar fondu, bœuf fumé, oignons frits, ketchup.",m:6.50,s:4.50}
+    ]},
+  { id:'snacks', label:'Starters, paninis & croqs', note:'Paninis et croqs : en menu avec frites & boisson, ou seuls.',
+    groups:[
+      {title:'Starters',items:[
+        {n:"Frites classiques",p:2.00},{n:"Tenders ×3",p:3.90},{n:"Nuggets ×8",p:4.50},
+        {n:"Wings ×8",p:5.50},{n:"Onion rings ×8",p:4.00},{n:"Mozza sticks ×5",p:4.00}
+      ]},
+      {title:'Paninis',items:[
+        {n:"Jambon*",m:5.70,s:4.00},{n:"3 Fromages",m:5.70,s:4.00},{n:"Steak",m:5.70,s:4.00},
+        {n:"Chicken curry",m:5.70,s:4.00},{n:"Chicken paprika",m:5.70,s:4.00},
+        {n:"Saumon",m:6.50,s:5.30},{n:"Grec",m:6.00,s:4.80}
+      ]},
+      {title:'Croqs (supplément œuf +0,50 €)',items:[
+        {n:"Monsieur",d:"Jambon*, cheese.",m:5.70,s:3.70},
+        {n:"Madame",d:"Jambon*, cheese, œuf.",m:6.20,s:4.20},
+        {n:"Boursin",d:"Jambon*, cheese, boursin.",m:5.80,s:3.80},
+        {n:"Saumon",d:"Saumon, cheese.",m:6.50,s:4.50},
+        {n:"Beef & Cheese",d:"Jambon*, cheese, bœuf fumé, cheddar.",m:6.50,s:4.50}
+      ]}
+    ]},
+  { id:'plats', label:'Plats, pâtes & salades', note:'Plats : accompagnement au choix (accompagnement supplémentaire +2 €). Cuisson de la viande au choix.',
+    groups:[
+      {title:'Plats',items:[
+        {n:"L'Entrecôte",p:13.90},
+        {n:"Escalope de poulet crémeuse",p:10.90},
+        {n:"Brochettes poulet",d:"Duo de brochettes paprika et curry.",p:9.90},
+        {n:"Brochettes kefta",d:"Duo de brochettes kefta.",p:9.90},
+        {n:"Trio de brochettes",d:"Curry, paprika et kefta.",p:13.90},
+        {n:"Brochettes bœuf fromage",d:"Duo de brochettes bœuf fromage.",p:10.50},
+        {n:"Steak à cheval",d:"Steak haché frais 150 g, cheddar, œuf.",p:8.90},
+        {n:"Steak à cheval XL",d:"Double steaks hachés frais 150 g, doubles cheddars, doubles œufs.",p:12.90},
+        {n:"Cordon bleu maison",p:9.90},
+        {n:"Escalope milanaise",p:11.90}
+      ]},
+      {title:'Pâtes (supplément fromage ou boursin +0,50 €)',items:[
+        {n:"Pâtes au lardons",d:"Tagliatelles, crème, lardons*.",p:9.90},
+        {n:"Pâtes au poulet « Bigmo »",d:"Tagliatelles, poulet, crème, boursin.",p:9.90},
+        {n:"Pâtes au saumon",d:"Tagliatelles, crème, saumon fumé.",p:9.90},
+        {n:"Pâtes à la bolognaise",d:"Tagliatelles, sauce bolognaise, viande hachée.",p:9.90}
+      ]},
+      {title:'Gratins (servis avec une petite salade)',items:[
+        {n:"Gratin Savoyard",d:"Pomme de terre, lardons*, oignons, fromage à raclette.",p:9.90},
+        {n:"Gratin Italia",d:"Pomme de terre, jambon fumé*, fromage.",p:9.90}
+      ]},
+      {title:'Salades',items:[
+        {n:"Caesar salade",d:"Salade iceberg, poulet frais, croûtons, tomates, parmesan, oignons rouges, crousti oignons.",p:8.90},
+        {n:"Island salade",d:"Salade iceberg, saumon fumé, avocat, tomates.",p:9.90},
+        {n:"Mozza salade",d:"Tomates, mozzarella, crousti oignons.",p:7.90},
+        {n:"Chicken salade",d:"Salade iceberg, poulet frais au curry, tomates, croûtons, parmesan.",p:8.90},
+        {n:"Salade paysanne",d:"Salade iceberg, jambon, bacon fumé*, lardons, tomate, croûtons.",p:8.90}
+      ]}
+    ]},
+  { id:'desserts', label:'Desserts', note:'',
+    items:[
+      {n:"Tiramisu maison",d:"Oreo Nutella, Speculoos Nutella, Galettes bretonnes Nutella, Granola coco Nutella, façon Bounty Nutella (+0,30 €).",p:3.90},
+      {n:"Tarte Daim",p:2.50},
+      {n:"Tiramisu Nubi",d:"Demandez nos parfums.",p:2.50},
+      {n:"Gaufre sucre",p:2.50},
+      {n:"Gaufre Nutella",p:3.00},
+      {n:"Gaufre Nutella & chantilly",p:3.50},
+      {n:"La Panna Cotta",d:"Framboise, mangue, Nutella.",p:3.90},
+      {n:"Fondant chocolat",d:"Servi avec sa crème anglaise & chantilly.",p:3.50},
+      {n:"Crème brûlée",p:3.90},
+      {n:"Ananas flambé",p:4.00},
+      {n:"Mystère",d:"Glace vanille cœur meringue ou crème brûlée cœur caramel.",p:3.50},
+      {n:"Glace enfant",p:1.50},
+      {n:"Granité",d:"Petit 2,50 € · Grand 3,50 €",p:2.50}
+    ]}
+];
+
+/* ---------- Rendu ---------- */
+const eur = v => v.toFixed(2).replace('.',',') + ' €';
+const esc = s => String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function itemHTML(it){
+  let price='';
+  if(it.m!==undefined && it.s!==undefined) price = `<div class="price">${eur(it.m)}<small>menu · seul ${eur(it.s)}</small></div>`;
+  else if(it.m!==undefined) price = `<div class="price">${eur(it.m)}<small>menu</small></div>`;
+  else price = `<div class="price">${it.n==='Granité'?'dès ':''}${eur(it.p)}</div>`;
+  return `<div class="item"><div><h4>${esc(it.n)}</h4>${it.d?`<p>${esc(it.d)}</p>`:''}</div>${price}</div>`;
+}
+const menuEl = document.getElementById('menu');
+const tabsEl = document.getElementById('tabs');
+menuEl.innerHTML = MENU.map(c=>{
+  let body='';
+  if(c.groups) body = c.groups.map(g=>`<div class="sub">${esc(g.title)}</div><div class="items" style="margin-top:14px">${g.items.map(itemHTML).join('')}</div>`).join('');
+  else body = `<div class="items">${c.items.map(itemHTML).join('')}</div>`;
+  const extra = c.extra ? `<div class="kids" style="margin-top:22px"><div><h3>${esc(c.extra.title)}</h3><p>${esc(c.extra.sub)}</p></div><div class="price">${c.extra.price}</div></div>` : '';
+  return `<div class="cat" id="cat-${c.id}"><h3>${esc(c.label)}</h3>${c.note?`<p class="note">${esc(c.note)}</p>`:''}${body}${extra}</div>`;
+}).join('');
+tabsEl.innerHTML = MENU.map((c,i)=>`<button class="tab${i===0?' active':''}" data-id="${c.id}">${esc(c.label)}</button>`).join('');
+tabsEl.addEventListener('click',e=>{
+  const b=e.target.closest('.tab'); if(!b) return;
+  document.getElementById('cat-'+b.dataset.id).scrollIntoView({behavior:'smooth',block:'start'});
+});
+/* Onglet actif au scroll */
+const cats=[...document.querySelectorAll('.cat')];
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){
+    const id=e.target.id.replace('cat-','');
+    tabsEl.querySelectorAll('.tab').forEach(t=>{
+      const on=t.dataset.id===id; t.classList.toggle('active',on);
+      if(on) t.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
+    });
+  }});
+},{rootMargin:'-150px 0px -65% 0px'});
+cats.forEach(c=>io.observe(c));
+
+/* ---------- Horaires & statut ouvert/fermé ---------- */
+// index JS : 0 = dimanche … 6 = samedi
+const HOURS = {
+  1:['11:00','23:30'], 2:['11:00','23:30'], 3:['11:00','23:30'], 4:['11:00','23:30'],
+  5:['14:30','23:30'], 6:['11:00','23:30'], 0:['13:30','23:30']
+};
+const DAYS = [[1,'Lundi'],[2,'Mardi'],[3,'Mercredi'],[4,'Jeudi'],[5,'Vendredi'],[6,'Samedi'],[0,'Dimanche']];
+const parisNow = () => {
+  const parts = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Paris',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+  const get = t => parts.find(p=>p.type===t).value;
+  const dayMap = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  return {day:dayMap[get('weekday')], min:(+get('hour')%24)*60 + +get('minute')};
+};
+const toMin = s => { const [h,m]=s.split(':'); return +h*60 + +m; };
+const now = parisNow();
+document.getElementById('hours').innerHTML = DAYS.map(([d,l])=>
+  `<li class="${d===now.day?'today':''}"><span>${l}</span><span>${HOURS[d][0].replace(':','h')} – ${HOURS[d][1].replace(':','h')}</span></li>`).join('');
+const [o,c] = HOURS[now.day].map(toMin);
+const st = document.getElementById('status');
+if(now.min>=o && now.min<c){ st.className='status open'; st.querySelector('span').textContent=`Ouvert maintenant · jusqu'à ${HOURS[now.day][1].replace(':','h')}`; }
+else if(now.min<o){ st.className='status closed'; st.querySelector('span').textContent=`Fermé · ouvre aujourd'hui à ${HOURS[now.day][0].replace(':','h')}`; }
+else { st.className='status closed'; st.querySelector('span').textContent='Fermé · à demain !'; }
+</script>
+</body>
+</html>

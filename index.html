@@ -271,6 +271,29 @@ header.nav.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.5)}
 footer a{text-decoration:underline;text-underline-offset:3px}
 footer a:hover{color:var(--text)}
 
+/* ================= Logo 3D qui tourne sur place ================= */
+@keyframes coinSpin{from{transform:rotateX(-9deg) rotateY(0deg)}to{transform:rotateX(-9deg) rotateY(360deg)}}
+@keyframes coinShade{0%,100%{opacity:0}50%{opacity:.5}}
+@keyframes coinShadow{0%,100%{transform:scaleX(1);opacity:.55}50%{transform:scaleX(.22);opacity:.25}}
+@keyframes coinGlow{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.85;transform:scale(1.12)}}
+.coin-scene{--s:128px;position:relative;width:var(--s);height:var(--s);margin:0 auto 34px;perspective:900px}
+@media(min-width:560px){.coin-scene{--s:160px}}
+@media(min-width:900px){.coin-scene{--s:190px}}
+.coin{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:coinSpin 9s linear infinite}
+.coin .face,.coin .rim{position:absolute;inset:0;border-radius:50%}
+.coin .face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#0d0d0d}
+.coin .face.front{transform:translateZ(7px)}
+.coin .face.back{transform:rotateY(180deg) translateZ(7px)}
+.coin .face svg{display:block;width:100%;height:100%}
+.coin .face::after{content:"";position:absolute;inset:0;border-radius:50%;background:#000;opacity:0;pointer-events:none;animation:coinShade 4.5s ease-in-out infinite}
+.coin .rim{background:#e0600f}
+.coin .rim:nth-child(odd){background:#b94a0a}
+/* Quand logo.png existe dans le dépôt, il remplace l'emblème provisoire sur les deux faces */
+.coin.has-logo .face{background:var(--logo) center/cover no-repeat}
+.coin.has-logo .face svg{display:none}
+.coin-glow{position:absolute;inset:-26%;border-radius:50%;background:radial-gradient(circle,rgba(242,106,27,.45),transparent 62%);filter:blur(10px);animation:coinGlow 4.5s ease-in-out infinite;pointer-events:none}
+.coin-shadow{position:absolute;left:12%;right:12%;bottom:-24px;height:14px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.8),transparent 70%);animation:coinShadow 4.5s ease-in-out infinite;pointer-events:none}
+
 /* Respect du réglage « réduire les animations » */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -303,6 +326,14 @@ footer a:hover{color:var(--text)}
     <div class="blob b2" aria-hidden="true"></div>
     <div class="embers" id="embers" aria-hidden="true"></div>
     <div class="wrap">
+      <div class="coin-scene fx" style="--d:0s" role="img" aria-label="Logo O3 Signatures">
+        <div class="coin-glow" aria-hidden="true"></div>
+        <div class="coin" id="coin">
+          <div class="face front"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#0d0d0d" stroke="#f26a1b" stroke-width="5"/><circle cx="50" cy="50" r="37" fill="none" stroke="#f26a1b" stroke-opacity=".35" stroke-width="1.2"/><text x="50" y="57" font-family="Oswald,Arial,sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#f26a1b">O3</text><text x="50" y="72" font-family="Oswald,Arial,sans-serif" font-size="8.5" letter-spacing="2.2" text-anchor="middle" fill="#f3efe8">SIGNATURES</text></svg></div>
+          <div class="face back"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#0d0d0d" stroke="#f26a1b" stroke-width="5"/><circle cx="50" cy="50" r="37" fill="none" stroke="#f26a1b" stroke-opacity=".35" stroke-width="1.2"/><text x="50" y="57" font-family="Oswald,Arial,sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#f26a1b">O3</text><text x="50" y="72" font-family="Oswald,Arial,sans-serif" font-size="8.5" letter-spacing="2.2" text-anchor="middle" fill="#f3efe8">SIGNATURES</text></svg></div>
+        </div>
+        <div class="coin-shadow" aria-hidden="true"></div>
+      </div>
       <span class="tag fx" style="--d:.1s">Burger Gourmet &amp; Grill · Villemomble</span>
       <h1 class="fx" style="--d:.25s">Burgers gourmets <span>signature</span>,<br>à Villemomble</h1>
       <p class="lead fx" style="--d:.4s">Pain frais, steak haché frais, sauces maison et grillades. Sur place, à emporter ou en livraison, dans le centre de Villemomble.</p>
@@ -444,20 +475,41 @@ footer a:hover{color:var(--text)}
 <script>
 /* La carte, les onglets et les horaires sont écrits directement dans le HTML (meilleur pour le référencement). */
 const tabsEl = document.getElementById('tabs');
+const tabBtns = [...tabsEl.querySelectorAll('.tab')];
+
+/* Onglet actif : on ne fait défiler QUE la barre d'onglets, jamais la page.
+   (Avant, scrollIntoView sur l'onglet remontait toute la page à chaque changement de catégorie,
+   ce qui bloquait le défilement vers le bas.) */
+function setActive(id){
+  tabBtns.forEach(t=>{
+    const on = t.dataset.id===id;
+    if(on === t.classList.contains('active')) return;
+    t.classList.toggle('active', on);
+    if(on){
+      const box = tabsEl.getBoundingClientRect(), r = t.getBoundingClientRect();
+      tabsEl.scrollTo({left: tabsEl.scrollLeft + (r.left-box.left) - (box.width-r.width)/2, behavior:'smooth'});
+    }
+  });
+}
+
+/* Pendant le défilement lancé par un clic sur un onglet, on laisse l'onglet cliqué actif
+   (sinon il clignote sur toutes les catégories traversées). */
+let locked = false, lockTimer;
+const unlockSoon = () => { clearTimeout(lockTimer); lockTimer = setTimeout(()=>{ locked = false; }, 200); };
+addEventListener('scroll', ()=>{ if(locked) unlockSoon(); }, {passive:true});
+
 tabsEl.addEventListener('click',e=>{
   const b=e.target.closest('.tab'); if(!b) return;
+  locked = true; unlockSoon();
+  setActive(b.dataset.id);
   document.getElementById('cat-'+b.dataset.id).scrollIntoView({behavior:'smooth',block:'start'});
 });
-/* Onglet actif au scroll */
+
+/* Onglet actif quand on fait défiler la page */
 const cats=[...document.querySelectorAll('.cat')];
 const io=new IntersectionObserver(es=>{
-  es.forEach(e=>{ if(e.isIntersecting){
-    const id=e.target.id.replace('cat-','');
-    tabsEl.querySelectorAll('.tab').forEach(t=>{
-      const on=t.dataset.id===id; t.classList.toggle('active',on);
-      if(on) t.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
-    });
-  }});
+  if(locked) return;
+  es.forEach(e=>{ if(e.isIntersecting) setActive(e.target.id.replace('cat-','')); });
 },{rootMargin:'-150px 0px -65% 0px'});
 cats.forEach(c=>io.observe(c));
 
@@ -485,6 +537,20 @@ else { st.className='status closed'; st.querySelector('span').textContent='Ferm�
 /* ---------- Animations ---------- */
 (function(){
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Logo 3D : l'épaisseur de la pièce est faite de disques empilés ; le vrai logo (logo.png) remplace l'emblème s'il existe */
+  const coin = document.getElementById('coin');
+  if(coin){
+    for(let i=-6;i<=6;i++){
+      const r = document.createElement('div');
+      r.className = 'rim';
+      r.style.transform = `translateZ(${i}px)`;
+      coin.appendChild(r);
+    }
+    const logo = new Image();
+    logo.onload = () => { coin.style.setProperty('--logo', 'url("logo.png")'); coin.classList.add('has-logo'); };
+    logo.src = 'logo.png';
+  }
 
   /* Braises qui montent du gril (hero) */
   const em = document.getElementById('embers');

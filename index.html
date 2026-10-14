@@ -230,7 +230,8 @@ header.nav.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.5)}
 
 /* Barre d'appel mobile */
 @media(max-width:760px){
-  .callbar{animation:slideIn .6s .8s cubic-bezier(.2,.8,.2,1) backwards}
+  .callbar{animation:slideIn .6s .8s cubic-bezier(.2,.8,.2,1) backwards;transition:transform .35s ease}
+  .callbar.away{transform:translateY(160%)}
   .callbar .btn.primary{animation:ring 2.6s 2s infinite}
 }
 
@@ -294,6 +295,27 @@ footer a:hover{color:var(--text)}
 .coin-glow{position:absolute;inset:-26%;border-radius:50%;background:radial-gradient(circle,rgba(242,106,27,.45),transparent 62%);filter:blur(10px);animation:coinGlow 4.5s ease-in-out infinite;pointer-events:none}
 .coin-shadow{position:absolute;left:12%;right:12%;bottom:-24px;height:14px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.8),transparent 70%);animation:coinShadow 4.5s ease-in-out infinite;pointer-events:none}
 
+/* ================= Haut de page : logo à gauche, boutons de commande visibles dès l'ouverture ================= */
+.hero{text-align:left;padding:96px 0 56px}
+.hero h1{font-size:clamp(32px,5.4vw,66px);line-height:1.05}
+.hero .tag{margin-bottom:16px}
+.hero p.lead{margin:14px 0 22px;max-width:560px;font-size:16px}
+.hero .cta{justify-content:flex-start}
+.hero .stats{justify-content:flex-start;margin-top:30px;gap:30px}
+.hero .stat{text-align:left}
+.hero .status{margin-top:20px}
+.hero-grid{position:relative}
+/* mobile : le logo reste petit, dans l'angle, sans pousser le contenu vers le bas */
+.coin-scene{position:absolute;top:-84px;left:0;margin:0;--s:72px}
+.coin-shadow{bottom:-12px;height:8px}
+@media(min-width:900px){
+  .hero{padding:64px 0 64px}
+  .hero-grid{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+  .hero p.lead{font-size:18px}
+  .coin-scene{position:relative;top:auto;left:auto;--s:190px;margin:48px 0 24px;align-self:start}
+  .coin-shadow{bottom:-24px;height:14px}
+}
+
 /* Respect du réglage « réduire les animations » */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -326,6 +348,7 @@ footer a:hover{color:var(--text)}
     <div class="blob b2" aria-hidden="true"></div>
     <div class="embers" id="embers" aria-hidden="true"></div>
     <div class="wrap">
+     <div class="hero-grid">
       <div class="coin-scene fx" style="--d:0s" role="img" aria-label="Logo O3 Signatures">
         <div class="coin-glow" aria-hidden="true"></div>
         <div class="coin" id="coin">
@@ -334,6 +357,7 @@ footer a:hover{color:var(--text)}
         </div>
         <div class="coin-shadow" aria-hidden="true"></div>
       </div>
+      <div class="hero-copy">
       <span class="tag fx" style="--d:.1s">Burger Gourmet &amp; Grill · Villemomble</span>
       <h1 class="fx" style="--d:.25s">Burgers gourmets <span>signature</span>,<br>à Villemomble</h1>
       <p class="lead fx" style="--d:.4s">Pain frais, steak haché frais, sauces maison et grillades. Sur place, à emporter ou en livraison, dans le centre de Villemomble.</p>
@@ -349,6 +373,8 @@ footer a:hover{color:var(--text)}
         <div class="stat"><b>7j/7</b><small>jusqu'à 23h30</small></div>
       </div>
       <div class="status" id="status"><i></i><span>Horaires en cours de chargement…</span></div>
+      </div>
+     </div>
     </div>
   </div>
 
@@ -380,7 +406,7 @@ footer a:hover{color:var(--text)}
         </div>
         <div class="panel order-card">
           <h3>Sur place</h3>
-          <p>Venez manger dans le centre de Villemomble. Menu enfant et Wi-Fi offert.</p>
+          <p>Venez manger dans le centre de Villemomble. Un menu enfant est à la carte. Le Wi-Fi est disponible sur place.</p>
           <div class="stack">
             <a class="btn ghost lg" data-cta="order-directions" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/dir/?api=1&destination=65+Grande+Rue+93250+Villemomble">Voir l'itinéraire</a>
           </div>
@@ -399,7 +425,7 @@ footer a:hover{color:var(--text)}
         <div class="feature"><div class="ico">🍝</div><h3>Plats &amp; grillades</h3><p>Entrecôte, brochettes, cordon bleu maison, pâtes et gratins.</p></div>
         <div class="feature"><div class="ico">🍮</div><h3>Desserts maison</h3><p>Tiramisu, gaufres, panna cotta, fondant chocolat et crème brûlée.</p></div>
         <div class="feature"><div class="ico">👶</div><h3>Menu enfant</h3><p>Hamburger ou nuggets, frites et Capri-Sun pour les moins de 11 ans.</p></div>
-        <div class="feature"><div class="ico">🥗</div><h3>Options végétariennes</h3><p>Salades, mozza sticks, pâtes et gratins pour tous les goûts. Wi-Fi offert.</p></div>
+        <div class="feature"><div class="ico">🥗</div><h3>Options végétariennes</h3><p>Mozza salade, mozza sticks, onion rings, panini 3 fromages et desserts. En cas de doute, demandez au restaurant.</p></div>
       </div>
     </div>
   </section>
@@ -550,6 +576,13 @@ else { st.className='status closed'; st.querySelector('span').textContent='Ferm�
     const logo = new Image();
     logo.onload = () => { coin.style.setProperty('--logo', 'url("logo.png")'); coin.classList.add('has-logo'); };
     logo.src = 'logo.png';
+  }
+
+  /* Mobile : la barre fixe se cache tant que les gros boutons du haut sont visibles (évite le doublon) */
+  const callbar = document.querySelector('.callbar'), heroCta = document.querySelector('.hero .cta');
+  if(callbar && heroCta && 'IntersectionObserver' in window){
+    new IntersectionObserver(es=>es.forEach(e=>callbar.classList.toggle('away', e.intersectionRatio >= .95)),
+      {threshold:[0,.5,.95,1]}).observe(heroCta);
   }
 
   /* Braises qui montent du gril (hero) */

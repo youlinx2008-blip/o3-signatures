@@ -161,7 +161,7 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--text)}
   body{padding-bottom:76px}
 }
 /* ================= Animations ================= */
-@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes fadeSoft{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @keyframes revealUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 @keyframes sheen{to{background-position:200% center}}
 @keyframes floaty{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(34px,-26px) scale(1.12)}}
@@ -202,7 +202,7 @@ header.nav.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.5)}
 .blob.b2{width:320px;height:320px;background:radial-gradient(circle,#ff8a3d 0,rgba(255,138,61,0) 68%);right:-70px;bottom:-90px;animation:floaty 15s ease-in-out infinite reverse;translate:calc(var(--px)*-52px) calc(var(--py)*-36px)}
 .embers{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .embers span{position:absolute;bottom:-12px;border-radius:50%;background:radial-gradient(circle,#ffd9b5,#f26a1b 60%,transparent);opacity:0;animation:rise linear infinite}
-.fx{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:var(--d,0s)}
+.fx{animation:fadeSoft .55s var(--ease-out) backwards;animation-delay:var(--d,0s)}
 .hero h1 span{background:linear-gradient(90deg,var(--accent),#ffc08f,var(--accent));background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:sheen 4s linear infinite}
 .hero .btn.primary{animation:ring 2.4s 2s infinite}
 .status.open i{animation:pulseGreen 1.8s infinite}
@@ -378,17 +378,17 @@ footer a:hover{color:var(--text)}
         <div class="coin-hint" aria-hidden="true">Glisse pour le faire tourner</div>
       </div>
       <div class="hero-copy">
-      <span class="tag fx" style="--d:.1s">Burger Gourmet &amp; Grill · Villemomble</span>
-      <h1 class="fx" style="--d:.25s">Burgers gourmets <span>signature</span>,<br>à Villemomble</h1>
-      <p class="lead fx" style="--d:.4s">Pain frais, steak haché frais, sauces maison et grillades. Sur place, à emporter ou en livraison, dans le centre de Villemomble.</p>
-      <div class="cta fx" style="--d:.55s">
+      <span class="tag fx" style="--d:.03s">Burger Gourmet &amp; Grill · Villemomble</span>
+      <h1 class="fx" style="--d:.06s">Burgers gourmets <span>signature</span>,<br>à Villemomble</h1>
+      <p class="lead fx" style="--d:.1s">Pain frais, steak haché frais, sauces maison et grillades. Sur place, à emporter ou en livraison, dans le centre de Villemomble.</p>
+      <div class="cta fx" style="--d:0s">
         <a class="btn ghost lg" data-cta="hero-menu" href="#carte">Voir la carte complète</a>
         <span class="cta-break" aria-hidden="true"></span>
         <a class="btn uber lg" data-cta="hero-ubereats" target="_blank" rel="noopener noreferrer" href="https://www.ubereats.com/fr-en/store/o3-signatures-burger-grill/nIV6uXZ9Ru-njZn_5cjtpA">Commander sur Uber Eats</a>
         <a class="btn deliveroo lg" data-cta="hero-deliveroo" target="_blank" rel="noopener noreferrer" href="https://deliveroo.fr/fr/menu/paris/villemomble-gagny/o-3-signature-villemonble">Commander sur Deliveroo</a>
         <a class="btn primary lg" data-cta="hero-call" href="tel:+33148543271">Appeler le 01 48 54 32 71</a>
       </div>
-      <div class="stats fx" style="--d:.7s">
+      <div class="stats fx" style="--d:.16s">
         <div class="stat"><b><span data-count="4.6" data-dec="1">4,6</span> ★</b><small>sur Google (978 avis)</small></div>
         <div class="stat"><b><span data-count="10">10</span>–<span data-count="20">20</span> €</b><small>par personne</small></div>
         <div class="stat"><b>7j/7</b><small>jusqu'à 23h30</small></div>
